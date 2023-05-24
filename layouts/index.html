@@ -1,0 +1,32 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="homePage">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                            {{ .Content }}
+                        </header>
+                    </div>
+                    <div class="content">
+                        {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+                        {{- range $pages.GroupByDate "2006" "desc" }}
+                            <h3 class="heading3 is-3" id="{{ .Key | safeURL }}"><time datetime="{{ .Key }}" title="{{ i18n "posts_published_in" (len .Pages) }} {{ .Key }}">{{ .Key }}</time><a class="heading-link" href="#{{ .Key | safeURL }}" title="{{ i18n "move_subtitle_to_top_of_page" . }}"><i class="iconfont icon-horizlink" aria-hidden="true"></i></a></h3>
+                            <ul class="no-bullet">
+                                {{- range .Pages }}
+                                    <li>
+                                        <a href="{{ .Permalink }}" title="{{ .Description | markdownify | plainify }}">{{ .Title | markdownify }}</a>
+                                        {{- if isset .Params "date" -}}
+                                            &emsp;<span>(<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ i18n "iso8601" | safeHTML }} {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ index $.Site.Data.weekdayslc (printf "%d" .Date.Weekday) }}&nbsp;{{ .Date.Day }}{{ if eq .Date.Day 1 }}<sup>er</sup>{{ end }} {{ index $.Site.Data.monthslc (printf "%d" .Date.Month) }}</time>)</span>
+                                        {{- end }}
+                                    </li>
+                                {{- end }}
+                            </ul>
+                        {{- end }}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

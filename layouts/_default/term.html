@@ -1,0 +1,60 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="defaultTerm">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    {{ if eq .Data.Singular "sujet" -}}
+                        <div class="content">
+                            <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ site.Home.RelPermalink }}" title="{{ i18n "home_page" }}">{{ i18n "f-sharp_major" | safeHTML }}</a></li>
+                                    <li><a href="{{ site.Home.RelPermalink }}{{ .Type }}" title="{{ i18n "thematic_index" }}">{{ i18n "index_rerum" | safeHTML }}</a></li>
+                                    <li class="is-active"><a href="#" aria-current="page">{{ .Title }}</a></li>
+                                </ul>
+                            </nav>
+                            <header class="container has-text-left">
+                                <h1 class="title is-1">{{ .Title }}</h1>
+                            </header>
+                        </div>
+                    {{ else if eq .Data.Singular "nom" -}}
+                        <div class="content">
+                            <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ site.Home.RelPermalink }}" title="{{ i18n "home_page" }}">{{ i18n "f-sharp_major" | safeHTML }}</a></li>
+                                    <li><a href="{{ site.Home.RelPermalink }}{{ .Type }}" title="{{ i18n "onomastic_index" }}">{{ i18n "index_nominum" | safeHTML }}</a></li>
+                                    <li class="is-active"><a href="#" aria-current="page">{{ .Title }}</a></li>
+                                </ul>
+                            </nav>
+                            <header class="container has-text-left">
+                                <h1 class="title is-1">{{ .Title }}</h1>
+                            </header>
+                        </div>
+                    {{ end -}}
+                    <div class="content">
+                        {{- with .Content }}
+                            <aside class="abstractaside">
+                                <details{{ if ($.Site.Params.abstractOpen) }} open{{ end }}>
+                                    <summary accesskey="c" title="{{ i18n "keyboard_shortcut" | safeHTML }} Alt + Shift + C"><span class="smallcaps" title="{{ i18n "show_or_hide_abstract" }}">{{ i18n "abstract" }}</span></summary>
+                                    <div class="abstractinner">
+                                        {{- . -}}
+                                    </div>
+                                </details>
+                            </aside>
+                        {{- end }}
+                        <p><em>{{ i18n "retrochronological_list_of_related_posts" }}.</em></p>
+                        <ul class="no-bullet">
+                            {{- range .Data.Pages }}
+                                <li>
+                                    <a href="{{ .Permalink }}" title="{{ .Description | markdownify | plainify }}">{{ .Title | markdownify }}</a>
+                                    {{- if isset .Params "date" -}}
+                                        &emsp;<span>(<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ i18n "iso8601" | safeHTML }} {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ index $.Site.Data.weekdayslc (printf "%d" .Date.Weekday) }}&nbsp;{{ .Date.Day }}{{ if eq .Date.Day 1 }}<sup>er</sup>{{ end }} {{ index $.Site.Data.monthslc (printf "%d" .Date.Month) }}&nbsp;{{ .Date.Year }}</time>)</span>
+                                    {{- end }}
+                                </li>
+                            {{- end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

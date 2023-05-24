@@ -1,0 +1,123 @@
+baseURL = "https://fadiesemajeur.fr/"
+languageCode = "fr"
+defaultContentLanguage = "fr"
+languageName = "Français"
+title = "*fa* dièse majeur"
+rssLimit = 20
+canonifyURLs = true
+enableGitInfo = true
+enableRobotsTXT = true
+
+[build]
+    writeStats = true
+
+[frontmatter]
+    date = ["date", "publishDate", "lastmod"]
+    expiryDate = ["expiryDate"]
+    lastmod = ["lastmod", "date", "publishDate"]
+    publishDate = ["publishDate", "date"]
+
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            hardWraps = false
+            unsafe = true
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        noClasses = true
+        style = "tango"
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+        ordered = false
+
+[menu]
+    [[menu.main]]
+        identifier = "apropos"
+        name = "À propos"
+        title = "Présentation du site"
+        pageRef = "/a-propos"
+        weight = 1
+    [[menu.main]]
+        identifier = "sujets"
+        name = "*Index rerum*"
+        title = "Index thématique"
+        pageRef = "/sujets"
+        weight = 2
+    [[menu.main]]
+        identifier = "noms"
+        name = "*Index nominum*"
+        title = "Index onomastique"
+        pageRef = "/noms"
+        weight = 3
+    [[menu.main]]
+        identifier = "projets"
+        name = "Projets"
+        title = "Liste des projets en cours"
+        pageRef = "/projets"
+        weight = 4
+    [[menu.main]]
+        identifier = "mentionslegales"
+        name = "Mentions légales"
+        title = "Politique de confidentialité et RGPD"
+        pageRef = "/mentions-legales"
+        weight = 5
+    [[menu.social]]
+        identifier = "github"
+        name = "GitHub"
+        title = "Dépôt des sources"
+        pre = "<i class='iconfont icon-github'></i>"
+        url = "https://github.com/cscheen/fadiesemajeur"
+        weight = 1
+    [[menu.social]]
+        identifier = "plandusite"
+        name = "Plan du site"
+        title = "Plan du site"
+        pre = "<i class='iconfont icon-map'></i>"
+        url = "/sitemap.xml"
+        weight = 2
+    [[menu.social]]
+        identifier = "fluxrss"
+        name = "Flux RSS"
+        title = "Syndication de contenu"
+        pre = "<i class='iconfont icon-rss'></i>"
+        url = "/index.xml"
+        weight = 3
+
+[params]
+    title = "*fa* dièse majeur"
+    author = "Christian Scheen"
+    email = "Adresse électronique non divulguée"
+    description = "Site personnel de Christian Scheen"
+    mainSections = ["billets"]
+    images = ["/img/fisdur.png"]
+    bulmaVersion = "0.9.4"
+    abstractOpen = true
+    tocOpen = false
+
+[permalinks]
+    billets = "/billets/:filename/"
+    noms = "/noms/:title/"
+    sujets = "/sujets/:title/"
+    page = "/:filename/"
+    "/" = "/:filename/"
+
+[privacy]
+    [privacy.disqus]
+        disable = true
+    [privacy.googleAnalytics]
+        disable = true
+    [privacy.instagram]
+        disable = true
+    [privacy.twitter]
+        disable = true
+    [privacy.vimeo]
+        disable = true
+    [privacy.youtube]
+        disable = true
+
+[taxonomies]
+    sujet = "sujets"
+    nom = "noms"

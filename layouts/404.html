@@ -1,0 +1,20 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="pageNotFound">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ i18n "page_not_found" }}</h1>
+                        </header>
+                    </div>
+                    <div class="content">
+                        <p>La page à laquelle vous tentez d’accéder n’existe pas ou a été déplacée (erreur <span class="fullcaps">HTTP&nbsp;404</span>).</p>
+                        <p>Je vous invite à utiliser <a href="{{ site.Home.RelPermalink }}" title="{{ i18n "home_page" }}">ce lien</a> afin de retourner à la page d’accueil, où se trouve la liste rétrochronologique des billets publiés.</p>
+                        <p>Le site dispose aussi d’un <a href="{{ site.Home.RelPermalink }}sujets" title="{{ i18n "thematic_index" }}">index thématique</a> et d’un <a href="{{ site.Home.RelPermalink }}noms" title="{{ i18n "onomastic_index" }}">index onomastique</a>, accessibles <em>via</em> le menu principal de la barre de navigation, en haut de chaque page.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

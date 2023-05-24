@@ -1,0 +1,74 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="billetsSingle">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                        </header>
+                    </div>
+                    <div class="title subtitle is-6">
+                        <div class="columns is-vcentered is-mobile">
+                            <div class="column">
+                                <header class="metadata container has-text-left">
+                                    {{- if isset .Params "date" }}
+                                        <p>{{ i18n "published" }} <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ i18n "iso8601" | safeHTML }} {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ index $.Site.Data.weekdayslc (printf "%d" .Date.Weekday) }}&nbsp;{{ .Date.Day }}{{ if eq .Date.Day 1 }}<sup>er</sup>{{ end }} {{ index $.Site.Data.monthslc (printf "%d" .Date.Month) }}&nbsp;{{ .Date.Year }}</time></p>
+                                        {{- if gt .Lastmod .Date }}
+                                            <p>{{ i18n "updated" }} <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ i18n "iso8601" | safeHTML }} {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ index $.Site.Data.weekdayslc (printf "%d" .Lastmod.Weekday) }}&nbsp;{{ .Lastmod.Day }}{{ if eq .Lastmod.Day 1 }}<sup>er</sup>{{ end }} {{ index $.Site.Data.monthslc (printf "%d" .Lastmod.Month) }}&nbsp;{{ .Lastmod.Year }}</time></p>
+                                        {{- end }}
+                                    {{- end }}
+                                    {{- with .GetTerms "sujets" }}
+                                        <p><i class="iconfont icon-subjects" title="{{ i18n "subjects_addressed" (len .) }}"></i>&emsp;{{ range $index, $el := . }}{{ if gt $index 0 }}&nbsp;&middot; {{ end }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</p>
+                                    {{- end }}
+                                    {{- with .GetTerms "noms" }}
+                                        <p><i class="iconfont icon-names" title="{{ i18n "names_mentioned" (len .) }}"></i>&emsp;{{ range $index, $el := . }}{{ if gt $index 0 }}&nbsp;&middot; {{ end }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</p>
+                                    {{- end }}
+                                    {{- if .Params.draft }}
+                                        <p><strong>{{ i18n "draft" }} ({{ .WordCount }}&nbsp;{{ i18n "words" .WordCount }}, {{ .ReadingTime }}&nbsp;{{ i18n "minutes" .ReadingTime }})</strong></p>
+                                    {{- end }}
+                                </header>
+                            </div>
+                        </div>
+                    </div>
+                    {{ if isset .Params "imgauthor" -}}
+                        <figure class="featured-image">
+                            <img loading="lazy" src="{{ index .Params.Images 0 }}" alt="{{ i18n "featured_image" }}">
+                            <figcaption class="attribution has-text-right">{{ i18n "image_by" }} {{ .Params.imgAuthor }} ({{ i18n "see" | lower }} <a href="{{ .Params.imgURL }}" title="{{ i18n "photographic_credit" }}" rel="external noopener noreferrer">{{ .Params.imgWebSite }}</a>)</figcaption>
+                        </figure>
+                    {{ end -}}
+                    <div class="content">
+                        {{- .Content -}}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    {{ partial "backlinks.html" (dict "page" .) }}
+    {{ if or (.PrevInSection) (.NextInSection) -}}
+        <section class="section">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <hr>
+                    <div class="content">
+                        <h3 class="heading3 is-3" id="{{ i18n "other_posts_anchor" }}">{{ i18n "other_posts" }}<a class="heading-link" href="#{{ i18n "other_posts_anchor" }}" title="{{ i18n "move_subtitle_to_top_of_page" . }}"><i class="iconfont icon-horizlink" aria-hidden="true"></i></a></h3>
+                    </div>
+                    <div class="columns is-mobile">
+                        <div class="column has-text-left">
+                            {{ with .PrevInSection -}}
+                                <p title="{{ i18n "published" }} {{ i18n "iso8601" | safeHTML }} {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">&larr;&nbsp;<em>{{ i18n "previous_post" }}</em></p>
+                                <p><a class="previous" href="{{ .Permalink }}" title="{{ .Description | markdownify | plainify }}">{{ .Title | markdownify }}</a></p>
+                            {{ end -}}
+                        </div>
+                        <div class="column has-text-right">
+                            {{ with .NextInSection -}}
+                                <p title="{{ i18n "published" }} {{ i18n "iso8601" | safeHTML }} {{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"><em>{{ i18n "next_post" }}</em>&nbsp;&rarr;</p>
+                                <p><a class="next" href="{{ .Permalink }}" title="{{ .Description | markdownify | plainify }}">{{ .Title | markdownify }}</a></p>
+                            {{ end -}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{ end -}}
+{{ end }}

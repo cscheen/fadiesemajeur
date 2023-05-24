@@ -1,0 +1,129 @@
+[abbreviated_git_commit_hash]
+    other = "Hachage abrégé de la validation Git"
+[abstract]
+    other = "Résumé"
+[and]
+    other = "et"
+[attribution_link]
+    other = "Lien d’attribution"
+[backlinks]
+    one = "Lien vers ce billet"
+    other = "Liens vers ce billet"
+[backlinks_anchor]
+    one = "lien-vers-ce-billet"
+    other = "liens-vers-ce-billet"
+[code_license]
+    other = "Licence du code"
+[content_license]
+    other = "Licence du contenu"
+[contents]
+    other = "Sommaire"
+[css_framework]
+    other = "Infrastructure logicielle CSS"
+[direct_link]
+    other = "Lien direct"
+[draft]
+    other = "Brouillon"
+[edited_with]
+    other = "Édité sous"
+[f-sharp_major]
+    other = "<em>fa</em>&nbsp;dièse majeur"
+[featured_image]
+    other = "Image à la une"
+[full_resolution_image]
+    other = "Image en pleine résolution"
+[home_page]
+    other = "Page d’accueil"
+[hugo_release]
+    other = "Version de Hugo"
+[image_by]
+    other = "Illustration par"
+[in]
+    other = "dans"
+[in_mode]
+    other = "en mode"
+[index_nominum]
+    other = "<em>Index nominum</em>"
+[index_rerum]
+    other = "<em>Index rerum</em>"
+[iso8601]
+    other = "ISO&nbsp;8601&nbsp;:"
+[keyboard_shortcut]
+    other = "Raccourci au clavier&nbsp;:"
+[major_mode]
+    other = "Mode majeur"
+[minutes]
+    one = "minute"
+    other = "minutes"
+[move_subtitle_to_top_of_page]
+    other = "Déplacer l’intertitre en haut de la page"
+[names_mentioned]
+    one = "Nom mentionné"
+    other = "Noms mentionnés"
+[next_post]
+    other = "Billet suivant"
+[on]
+    other = "sur"
+[onomastic_index]
+    other = "Index onomastique"
+[other_posts]
+    other = "Autres billets"
+[other_posts_anchor]
+    other = "autres-billets"
+[page_not_found]
+    other = "Page non trouvée"
+[photographic_credit]
+    other = "Crédit photographique"
+[posts_mentioning]
+    one = "Billet mentionnant"
+    other = "Billets mentionnant"
+[posts_number]
+    other = "Nombre de billets"
+[posts_on]
+    one = "Billet traitant de"
+    other = "Billets traitant de"
+[posts_published_in]
+    one = "Billet publié en"
+    other = "Billets publiés en"
+[powered_by]
+    other = "Produit par"
+[previous_post]
+    other = "Billet précédent"
+[published]
+    other = "Publié"
+[quote_close]
+    other = "&nbsp;&raquo;"
+[quote_open]
+    other = "&laquo;&nbsp;"
+[recent_content]
+    other = "Contenu récent"
+[retrochronological_list_of_related_posts]
+    other = "Liste rétrochronologique des billets associés"
+[see]
+    other = "Voir"
+[show_or_hide_abstract]
+    other = "Afficher ou masquer le résumé"
+[show_or_hide_contents]
+    other = "Afficher ou masquer le sommaire"
+[site_under_licenses]
+    other = "Site sous licences"
+[static_site_generator]
+    other = "Générateur de site statique"
+[subjects_addressed]
+    one = "Sujet abordé"
+    other = "Sujets abordés"
+[text_editor]
+    other = "Éditeur de texte"
+[thematic_index]
+    other = "Index thématique"
+[typeface]
+    other = "Police de caractères"
+[typeset_using]
+    other = "Réalisé en"
+[updated]
+    other = "Mis à jour"
+[with]
+    other = "avec"
+[words]
+    one = "mot"
+    other = "mots"

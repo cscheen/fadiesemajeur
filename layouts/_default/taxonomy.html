@@ -1,0 +1,61 @@
+{{ define "main" }}
+    <section class="section">
+        <article class="defaultTaxonomy">
+            <div class="columns is-centered">
+                <div class="column max-textwidth">
+                    <div class="content">
+                        <header class="container has-text-left">
+                            <h1 class="title is-1">{{ .Title | markdownify }}</h1>
+                            {{ .Content }}
+                        </header>
+                    </div>
+                    {{ if eq .Data.Singular "sujet" -}}
+                        <div class="content">
+                            {{- $alphabet := split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" -}}
+                            {{ range .Site.Taxonomies.sujets.Alphabetical -}}
+                                {{- $firstChar := substr .Page.Title 0 1 | upper -}}
+                                {{- if in (split "ÀÂÆ" "") $firstChar }}{{ $firstChar = "A" }}{{ end -}}
+                                {{- if in (split "Ç" "") $firstChar }}{{ $firstChar = "C" }}{{ end -}}
+                                {{- if in (split "ÉÈÊË" "") $firstChar }}{{ $firstChar = "E" }}{{ end -}}
+                                {{- if in (split "ÎÏ" "") $firstChar }}{{ $firstChar = "I" }}{{ end -}}
+                                {{- if in (split "ÔŒ" "") $firstChar }}{{ $firstChar = "O" }}{{ end -}}
+                                {{- if in (split "ÙÛÜ" "") $firstChar }}{{ $firstChar = "U" }}{{ end -}}
+                                {{- if in (split "Ÿ" "") $firstChar }}{{ $firstChar = "Y" }}{{ end -}}
+                                {{ if $firstChar | in $alphabet -}}
+                                    {{- $curLetter := $.Scratch.Get "curLetter" -}}
+                                    {{ if ne $firstChar $curLetter -}}
+                                        {{- $.Scratch.Set "curLetter" $firstChar -}}
+                                        <h3 class="heading3 is-3">{{ $firstChar }}.&mdash;</h3>
+                                    {{ end -}}
+                                    <a href="{{ .Page.RelPermalink }}" title="{{ i18n "posts_on" .Count }} {{ i18n "quote_open" | safeHTML }}{{ .Page.Title }}{{ i18n "quote_close" | safeHTML }}">{{ .Page.Title }}</a>&#8239;<sup title="{{ i18n "posts_number" }}">{{ .Count }}</sup><br>
+                                {{ end -}}
+                            {{ end -}}
+                        </div>
+                    {{ else if eq .Data.Singular "nom" -}}
+                        <div class="content">
+                            {{- $alphabet := split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" -}}
+                            {{ range .Site.Taxonomies.noms.Alphabetical -}}
+                                {{- $firstChar := substr .Page.Title 0 1 | upper -}}
+                                {{- if in (split "ÀÂÆ" "") $firstChar }}{{ $firstChar = "A" }}{{ end -}}
+                                {{- if in (split "Ç" "") $firstChar }}{{ $firstChar = "C" }}{{ end -}}
+                                {{- if in (split "ÉÈÊË" "") $firstChar }}{{ $firstChar = "E" }}{{ end -}}
+                                {{- if in (split "ÎÏ" "") $firstChar }}{{ $firstChar = "I" }}{{ end -}}
+                                {{- if in (split "ÔŒ" "") $firstChar }}{{ $firstChar = "O" }}{{ end -}}
+                                {{- if in (split "ÙÛÜ" "") $firstChar }}{{ $firstChar = "U" }}{{ end -}}
+                                {{- if in (split "Ÿ" "") $firstChar }}{{ $firstChar = "Y" }}{{ end -}}
+                                {{ if $firstChar | in $alphabet -}}
+                                    {{- $curLetter := $.Scratch.Get "curLetter" -}}
+                                    {{ if ne $firstChar $curLetter -}}
+                                        {{- $.Scratch.Set "curLetter" $firstChar -}}
+                                        <h3 class="heading3 is-3">{{ $firstChar }}.&mdash;</h3>
+                                    {{ end -}}
+                                    <a href="{{ .Page.RelPermalink }}" title="{{ i18n "posts_mentioning" .Count }} {{ .Page.Title }}">{{ .Page.Title }}</a>&#8239;<sup title="{{ i18n "posts_number" }}">{{ .Count }}</sup><br>
+                                {{ end -}}
+                            {{ end -}}
+                        </div>
+                    {{ end -}}
+                </div>
+            </div>
+        </article>
+    </section>
+{{ end }}

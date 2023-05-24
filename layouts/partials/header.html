@@ -1,0 +1,45 @@
+<header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-item" href="{{ site.Home.RelPermalink }}" title="{{ i18n "home_page" }}"><span class="logo">{{ .Site.Title | markdownify }}</span></a>
+                </div>
+                {{ range .Site.Menus.social -}}
+                    <a class="navbar-item is-hidden-desktop social" href="{{ .URL }}" title="{{ .Title | markdownify | plainify }}"><span class="icon">{{ .Pre }}</span></a>
+                {{ end -}}
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarfisdur">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu" id="navbarfisdur">
+                <div class="navbar-start">
+                    {{- $currentPage := . -}}
+                    {{ range .Site.Menus.main -}}
+                        {{ if .HasChildren -}}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link is-arrowless" href="{{ .PageRef }}" title="{{ .Title | markdownify | plainify }}">{{ .Name | markdownify }}</a>
+                                <div class="navbar-dropdown">
+                                    {{ range .Children -}}
+                                        <a class="navbar-item" href="{{ .PageRef }}" title="{{ .Title | markdownify | plainify }}">{{ .Name | markdownify }}</a>
+                                    {{ end -}}
+                                </div>
+                            </div>
+                        {{ else -}}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-item" href="{{ .PageRef }}" title="{{ .Title | markdownify | plainify }}">{{ .Name | markdownify }}</a>
+                            </div>
+                        {{ end -}}
+                    {{ end -}}
+                </div>
+                <div class="navbar-end">
+                    {{ range .Site.Menus.social -}}
+                        <a class="navbar-item is-hidden-touch social" href="{{ .URL }}" title="{{ .Title | markdownify | plainify }}"><span class="icon">{{ .Pre }}</span></a>
+                    {{ end -}}
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

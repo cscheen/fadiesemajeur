@@ -1,0 +1,129 @@
+[abbreviated_git_commit_hash]
+    other = "Abbreviated Git commit hash"
+[abstract]
+    other = "Abstract"
+[and]
+    other = "and"
+[attribution_link]
+    other = "Attribution link"
+[backlinks]
+    one = "Backlink"
+    other = "Backlinks"
+[backlinks_anchor]
+    one = "backlink"
+    other = "backlinks"
+[code_license]
+    other = "Code license"
+[content_license]
+    other = "Content license"
+[contents]
+    other = "Contents"
+[css_framework]
+    other = "CSS framework"
+[direct_link]
+    other = "Direct link"
+[draft]
+    other = "Draft"
+[edited_with]
+    other = "Edited with"
+[f-sharp_major]
+    other = "F-sharp major"
+[featured_image]
+    other = "Featured image"
+[full_resolution_image]
+    other = "Full resolution image"
+[home_page]
+    other = "Home page"
+[hugo_release]
+    other = "Hugo release"
+[image_by]
+    other = "Image by"
+[in]
+    other = "in"
+[in_mode]
+    other = "in mode"
+[index_nominum]
+    other = "<em>Index nominum</em>"
+[index_rerum]
+    other = "<em>Index rerum</em>"
+[iso8601]
+    other = "ISO&nbsp;8601:"
+[keyboard_shortcut]
+    other = "Keyboard shortcut:"
+[major_mode]
+    other = "Major mode"
+[minutes]
+    one = "minute"
+    other = "minutes"
+[move_subtitle_to_top_of_page]
+    other = "Move subtitle to top of page"
+[names_mentioned]
+    one = "Name mentioned"
+    other = "Names mentioned"
+[next_post]
+    other = "Next post"
+[on]
+    other = "on"
+[onomastic_index]
+    other = "Onomastic index"
+[other_posts]
+    other = "Other posts"
+[other_posts_anchor]
+    other = "other-posts"
+[page_not_found]
+    other = "Page not found"
+[photographic_credit]
+    other = "Photographic credit"
+[posts_mentioning]
+    one = "Post mentioning"
+    other = "Posts mentioning"
+[posts_number]
+    other = "Posts number"
+[posts_on]
+    one = "Post on"
+    other = "Posts on"
+[posts_published_in]
+    one = "Post published in"
+    other = "Posts published in"
+[powered_by]
+    other = "Powered by"
+[previous_post]
+    other = "Previous post"
+[published]
+    other = "Published"
+[quote_close]
+    other = "&rdquo;"
+[quote_open]
+    other = "&ldquo;"
+[recent_content]
+    other = "Recent content"
+[retrochronological_list_of_related_posts]
+    other = "Retrochronological list of related posts"
+[see]
+    other = "See"
+[show_or_hide_abstract]
+    other = "Show or hide abstract"
+[show_or_hide_contents]
+    other = "Show or hide contents"
+[site_under_licenses]
+    other = "Site under licenses"
+[static_site_generator]
+    other = "Static site generator"
+[subjects_addressed]
+    one = "Subject addressed"
+    other = "Subjects addressed"
+[text_editor]
+    other = "Text editor"
+[thematic_index]
+    other = "Thematic index"
+[typeface]
+    other = "Typeface"
+[typeset_using]
+    other = "Typeset using"
+[updated]
+    other = "Updated"
+[with]
+    other = "with"
+[words]
+    one = "word"
+    other = "words"

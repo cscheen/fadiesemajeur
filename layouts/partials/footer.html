@@ -1,0 +1,23 @@
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered is-vflexended is-desktop colophon">
+            <div class="column is-one-third has-text-left">
+                {{- with .GitInfo -}}
+                    <p><i class="iconfont icon-gitcommit"></i>&nbsp;<time datetime="{{ .AuthorDate.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ i18n "iso8601" | safeHTML }} {{ .AuthorDate.Format "2006-01-02T15:04:05Z07:00" }}">{{ .AuthorDate.Format "2006-01-02" }}</time></p>
+                {{- end -}}
+            </div>
+            <div class="column is-one-third has-text-centered">
+                <p>&copy;&nbsp;<a href="{{ site.Home.RelPermalink }}" title="{{ .Site.Title | markdownify | plainify }}">{{ .Site.Params.author }}</a>&nbsp;{{ now.Format "2006" }}<br>
+                {{- i18n "site_under_licenses" }} <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="{{ i18n "content_license" }}" rel="external noopener noreferrer"><span class="liningnums">CC&nbsp;BY-SA&nbsp;4.0</span></a> {{ i18n "and" }} <a href="https://opensource.org/license/mit/" title="{{ i18n "code_license" }}" rel="external noopener noreferrer">MIT</a><br>
+                {{- i18n "powered_by" }} <a href="https://gohugo.io/" title="{{ i18n "static_site_generator" }}" rel="external noopener noreferrer">Hugo</a> ({{ .Site.Hugo.Version }}) {{ i18n "with" }} <a href="https://bulma.io/" title="{{ i18n "css_framework" }}" rel="external noopener noreferrer">Bulma</a> ({{ .Site.Params.bulmaVersion }})<br>
+                {{- i18n "edited_with" }} <a href="https://www.gnu.org/software/emacs/" title="{{ i18n "text_editor" }}" rel="external noopener noreferrer">GNU Emacs</a> {{ i18n "in_mode" }} <a href="https://jblevins.org/projects/markdown-mode/" title="{{ i18n "major_mode" }}" rel="external noopener noreferrer">Markdown</a><br>
+                {{- i18n "typeset_using" }} <a href="https://github.com/CatharsisFonts/Ysabeau" title="{{ i18n "typeface" }}" rel="external noopener noreferrer">Ysabeau</a></p>
+            </div>
+            <div class="column is-one-third has-text-right">
+                {{- with .GitInfo -}}
+                    <p><a href="https://github.com/cscheen/fadiesemajeur/commit/{{ .Hash }}" title="{{ i18n "abbreviated_git_commit_hash" }}" rel="external noopener noreferrer"><span class="gitcommit">{{ .AbbreviatedHash }}</span></a>&nbsp;<i class="iconfont icon-gitcommit"></i></p>
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+</footer>
