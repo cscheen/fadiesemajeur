@@ -1,7 +1,7 @@
 ---
 title: "À propos"
 date: "2023-05-24"
-lastmod: "2023-05-24"
+lastmod: "2023-10-07"
 description: "Présentation du site"
 images: ["/img/fisdur.png"]
 type: "page"
