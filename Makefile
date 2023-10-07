@@ -49,10 +49,10 @@ fonts: ## Make *.woff* Web fonts from ttf/ subdirectory
 
 build: ginit clean ## Build and publish site in public/ subdirectory
 	@echo ">>> make build: Building and publishing site in public/ subdirectory..."
-	@hugo --enableGitInfo --environment production --gc --minify --verbose
+	@hugo --enableGitInfo --environment production --gc --logLevel info --minify
 	@echo "... done."
 
 serve: ginit clean ## Build and serve site with Hugo’s Web server
 	@echo ">>> make serve: Building and serving site with Hugo’s Web server..."
-	@hugo server --buildDrafts --disableFastRender --enableGitInfo --environment production --gc --ignoreCache --verbose --watch
+	@hugo server --buildDrafts --disableFastRender --enableGitInfo --environment production --gc --ignoreCache --logLevel info --watch
 	@echo "... done."
