@@ -250,15 +250,8 @@ graphes de connaissance, des cartes de contenu et des
 [Obsidian](https://obsidian.md/),
 permettant l’élaboration non linéaire d’un {{< quote "second cerveau" >}} ou
 {{< quote "jardin numérique" >}}.
-Une interaction de ce système avec Hugo est possible grâce à
-[Quartz](https://quartz.jzhao.xyz/)
-et
-[Hugo-Obsidian](https://github.com/jackyzha0/hugo-obsidian),
-moyennant quelques librairies JavaScript telles que
-[{{< fullcaps "D3" >}}.js](https://d3js.org/),
-[FlexSearch](https://github.com/nextapps-de/flexsearch)
-et
-[Floating UI](https://floating-ui.com/).
+Un déploiement de ce système est possible grâce à
+[Quartz](https://quartz.jzhao.xyz/).
 Je ne suis cependant pas encore certain que des billets de *blog*, au sens
 classique du terme, y soient à leur place&nbsp;: il me semble que l’accent y
 est plutôt placé sur ce qui prend forme.
